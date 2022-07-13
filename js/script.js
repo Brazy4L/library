@@ -13,7 +13,6 @@ let library = [
 ];
 
 let container = document.getElementById('container');
-
 library.forEach((item) => {
     let div = document.createElement('div');
     div.innerText = item;
@@ -22,9 +21,14 @@ library.forEach((item) => {
 
 
 let button = document.getElementById('new-book');
-let popup = document.getElementById('popup')
+let popup = document.getElementById('popup');
 button.addEventListener('click', () => {
     popup.classList.toggle('hide');
+});
+
+let hidepopup = document.getElementById('container');
+hidepopup.addEventListener('click', () => {
+    popup.classList.add('hide');
 });
 
 function addBookToLibrary() {
