@@ -21,11 +21,12 @@ library.forEach((item) => {
 });
 
 
-(()=>{
-    let button = getElementById('new-book')
+let button = document.getElementById('new-book');
+let popup = document.getElementById('popup')
+button.addEventListener('click', () => {
+    popup.classList.toggle('hide');
 });
 
 function addBookToLibrary() {
     library.push();
 }
-

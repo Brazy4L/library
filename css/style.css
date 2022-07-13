@@ -70,6 +70,11 @@ input {
     height: 350px;
     padding-top: 100px;
     border-radius: 25px;
+    border: solid #000 1px;
+}
+
+.hide {
+    visibility: hidden;
 }
 
 form {
