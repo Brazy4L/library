@@ -20,13 +20,31 @@ function libraryFill() {
         let remove = document.createElement('button')
         div.innerText = item;
         container.appendChild(div);
-        remove.innerText = '-';
         remove.classList.add('remove');
+        remove.innerText = '-';
         div.appendChild(remove);
+        let removeButtons = document.querySelectorAll('.remove')
+        for (let i = 0; i < removeButtons.length; i++) {
+            let removeButton = removeButtons[i];
+            removeButton.addEventListener('click', () => {
+                library.splice(i, 1);
+                libraryFill();
+            });
+        }
     })
 }
 
 libraryFill();
+
+// document.querySelector('#container > div:nth-child(5) > :nth-child(1)').dataset.id
+
+// document.querySelectorAll('.remove')[1]
+
+let removeBook = () => {
+    library.shift(this.dataset.id);
+    libraryFill();
+}
+
 
 let button = document.getElementById('new-book');
 let popup = document.getElementById('popup');
@@ -55,9 +73,4 @@ function addBookToLibrary() {
 let addBook = document.getElementById('submit');
 addBook.addEventListener('click', () => {
     addBookToLibrary();
-});
-
-let removeButtons = document.querySelector('.remove');
-removeButtons.forEach((button) => {
-
 });
