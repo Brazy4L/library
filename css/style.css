@@ -60,7 +60,6 @@ body {
     height: 20px;
     border-radius: 8px;
     border: none;
-    order: -1;
     margin-right: 10px;
     font-size: 20px;
     font-weight: 900;
@@ -72,7 +71,15 @@ body {
     padding: 12px;
 }
 
-#container > div > button:active {
+.read {
+    margin-left: auto;
+}
+
+.remove {
+    order: -1;
+}
+
+.remove:active {
     transform: translateY(1px);
 }
 

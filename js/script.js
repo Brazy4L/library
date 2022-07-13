@@ -19,10 +19,13 @@ function libraryFill() {
         let div = document.createElement('div');
         div.innerText = item;
         container.appendChild(div);
-        let remove = document.createElement('button')
+        let remove = document.createElement('button');
         remove.innerText = '×';
         remove.classList.add('remove');
         div.appendChild(remove);
+        let read = document.createElement('button');
+        read.classList.add('read');
+        div.appendChild(read);
     })
 }
 
@@ -69,3 +72,18 @@ let addBook = document.getElementById('submit');
 addBook.addEventListener('click', () => {
     addBookToLibrary();
 });
+
+let checkMark = () => {
+    for (let i = 0; i < library.length; i++) {
+        let read = document.querySelectorAll('.read')[i]
+        read.addEventListener('click', () => {
+            if (read.innerText === '') {
+                read.innerText = '✓';
+            } else {
+                read.innerText = '';
+            }
+        })
+    }
+}
+
+checkMark();
