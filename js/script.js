@@ -13,14 +13,18 @@ let library = [
 ];
 
 let container = document.getElementById('container');
-
 function libraryFill() {
     document.getElementById('container').innerHTML = ''
     library.forEach((item) => {
-    let div = document.createElement('div');
-    div.innerText = item;
-    container.appendChild(div);
-})}
+        let div = document.createElement('div');
+        let remove = document.createElement('button')
+        div.innerText = item;
+        container.appendChild(div);
+        remove.innerText = '-';
+        remove.classList.add('remove');
+        div.appendChild(remove);
+    })
+}
 
 libraryFill();
 
@@ -39,13 +43,21 @@ function addBookToLibrary() {
     let title = document.getElementById('title');
     let author = document.getElementById('author');
     let year = document.getElementById('year');
-    let book = (title.value + ' ' + author.value + ' ' + '(' + year.value + ')');
+    let book = (title.value + ' by ' + author.value + ' ' + '(' + year.value + ')');
     library.push(book);
     popup.classList.add('hide');
     libraryFill();
+    title.value = '';
+    author.value = '';
+    year.value = '';
 }
 
 let addBook = document.getElementById('submit');
 addBook.addEventListener('click', () => {
     addBookToLibrary();
+});
+
+let removeButtons = document.querySelector('.remove');
+removeButtons.forEach((button) => {
+
 });

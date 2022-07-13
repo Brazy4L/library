@@ -51,6 +51,20 @@ body {
     padding: 20px;
     justify-self: center;
     border: solid #000 1px;
+    display: flex;
+}
+
+#container > div > button {
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    border: none;
+    order: -1;
+    margin-right: 10px;
+}
+
+#container > div > button:active {
+    transform: translateY(1px);
 }
 
 input {
