@@ -40,7 +40,7 @@ body {
 #container {
     height: calc(100vh - 76px);
     display: grid;
-    grid-template: repeat(10, 1fr) / repeat(auto-fit, minmax(450px, 1fr));
+    grid-template: repeat(12, 1fr) / repeat(auto-fit, minmax(650px, 1fr));
     row-gap: 30px;
 }
 
@@ -48,19 +48,28 @@ body {
     width: 85%;
     background-color: #9198e580;
     border-radius: 25px;
-    padding: 20px;
-    justify-self: center;
-    border: solid #000 1px;
+    padding: 10px;
     display: flex;
+    justify-self: center;
+    align-items: center;
+    border: solid #000 1px;
 }
 
 #container > div > button {
     width: 20px;
     height: 20px;
-    border-radius: 15px;
+    border-radius: 8px;
     border: none;
     order: -1;
     margin-right: 10px;
+    font-size: 20px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#a0d0df, #9198e5);
+    cursor: pointer;
+    padding: 12px;
 }
 
 #container > div > button:active {

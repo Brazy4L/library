@@ -17,34 +17,28 @@ function libraryFill() {
     document.getElementById('container').innerHTML = ''
     library.forEach((item) => {
         let div = document.createElement('div');
-        let remove = document.createElement('button')
         div.innerText = item;
         container.appendChild(div);
+        let remove = document.createElement('button')
+        remove.innerText = '×';
         remove.classList.add('remove');
-        remove.innerText = '-';
         div.appendChild(remove);
-        let removeButtons = document.querySelectorAll('.remove')
-        for (let i = 0; i < removeButtons.length; i++) {
-            let removeButton = removeButtons[i];
-            removeButton.addEventListener('click', () => {
-                library.splice(i, 1);
-                libraryFill();
-            });
-        }
     })
 }
 
 libraryFill();
 
-// document.querySelector('#container > div:nth-child(5) > :nth-child(1)').dataset.id
-
-// document.querySelectorAll('.remove')[1]
-
 let removeBook = () => {
-    library.shift(this.dataset.id);
-    libraryFill();
+    for (let i = 0; i < library.length; i++) {
+        document.querySelectorAll('.remove')[i].addEventListener('click', () => {
+            library.splice(i, 1);
+            libraryFill();
+            removeBook();
+        })
+    }
 }
 
+removeBook();
 
 let button = document.getElementById('new-book');
 let popup = document.getElementById('popup');
@@ -65,6 +59,7 @@ function addBookToLibrary() {
     library.push(book);
     popup.classList.add('hide');
     libraryFill();
+    removeBook();
     title.value = '';
     author.value = '';
     year.value = '';
