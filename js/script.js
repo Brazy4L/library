@@ -13,12 +13,16 @@ let library = [
 ];
 
 let container = document.getElementById('container');
-library.forEach((item) => {
+
+function libraryFill() {
+    document.getElementById('container').innerHTML = ''
+    library.forEach((item) => {
     let div = document.createElement('div');
     div.innerText = item;
     container.appendChild(div);
-});
+})}
 
+libraryFill();
 
 let button = document.getElementById('new-book');
 let popup = document.getElementById('popup');
@@ -32,5 +36,16 @@ hidepopup.addEventListener('click', () => {
 });
 
 function addBookToLibrary() {
-    library.push();
+    let title = document.getElementById('title');
+    let author = document.getElementById('author');
+    let year = document.getElementById('year');
+    let book = (title.value + ' ' + author.value + ' ' + '(' + year.value + ')');
+    library.push(book);
+    popup.classList.add('hide');
+    libraryFill();
 }
+
+let addBook = document.getElementById('submit');
+addBook.addEventListener('click', () => {
+    addBookToLibrary();
+});
