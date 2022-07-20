@@ -35,7 +35,9 @@ let removeBook = () => {
     for (let i = 0; i < library.length; i++) {
         document.querySelectorAll('.remove')[i].addEventListener('click', () => {
             library.splice(i, 1);
-            libraryFill();
+            libraryFill(); 
+            checkCheckMark();
+            checkMark();
             removeBook();
         })
     }
@@ -63,6 +65,7 @@ function addBookToLibrary() {
     popup.classList.add('hide');
     libraryFill();
     removeBook();
+    checkMark();
     title.value = '';
     author.value = '';
     year.value = '';
@@ -79,11 +82,26 @@ let checkMark = () => {
         read.addEventListener('click', () => {
             if (read.innerText === '') {
                 read.innerText = '✓';
+                localStorage.setItem(`check${i}`, 'yes');
             } else {
                 read.innerText = '';
+                localStorage.setItem(`check${i}`, 'no');
             }
         })
     }
 }
 
 checkMark();
+
+let checkCheckMark = () => {
+    for (let i = 0; i < library.length; i++) {
+        let read = document.querySelectorAll('.read')[i]
+        if (localStorage.getItem(`check${i}`) === 'yes') {
+            read.innerText = '✓';
+        } else if (localStorage.getItem(`check${i}`) === 'no') {
+            read.innerText = '';
+        }
+    }
+};
+
+checkCheckMark();

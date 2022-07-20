@@ -1,7 +1,7 @@
 :root {
     font-family: Verdana, sans-serif;
     font-size: 1rem;
-    background-color: #202020;
+    background-color: #131313;
     color: #fff;
 }
 
@@ -47,7 +47,7 @@ body {
 
 #container > div {
     width: 85%;
-    background-color: #9198e580;
+    background-color: #5d6299;
     border-radius: 25px;
     padding: 10px;
     display: flex;
